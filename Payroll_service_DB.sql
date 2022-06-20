@@ -14,6 +14,11 @@ CREATE TABLE employee_payroll
 
 select * from employee_payroll;
 
-
+--insert tnto database
+INSERT INTO employee_payroll (name,salary,startDate) VALUES
+('Suraj', 100000.00, '2022-04-10'),
+('Sanket', 200000.00, '2021-03-11'),
+('Akshay', 300000.00, '2020-10-15');
+select * from employee_payroll;
 
 
