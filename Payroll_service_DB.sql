@@ -16,13 +16,31 @@ select * from employee_payroll;
 
 --insert tnto database
 INSERT INTO employee_payroll (name,salary,startDate) VALUES
-('Suraj', 100000.00, '2022-04-10'),
-('Sanket', 200000.00, '2021-03-11'),
-('Akshay', 300000.00, '2020-10-15');
+('Suraj', 20000, '2022-04-10'),
+('Sanket', 20000, '2021-03-11'),
+('Akshay', 30000, '2020-10-15');
 
+INSERT INTO employee_payroll (name,salary,startDate) VALUES
+('Nita', 20000, '2022-01-6'),
+('Aditi', 20000, '2021-02-14'),
+('Shikha', 30000, '2020-8-15');
 --Retrive data from Table
 select * from employee_payroll;
 
+-- Ability to retrieve salary data for a particular employee as well as all employees who have
+-- joined in a particular data range from the  payroll service database
+select * from employee_payroll where name = 'Suraj';   
+select * from employee_payroll
+where startDate BETWEEN CAST('2021-01-01' as DATE) AND GETDATE();
 
+--UC 6 to add column gender and set gender
+Alter Table employee_payroll add Gender varchar(1);
+
+update employee_payroll set gender = 'M' where name = 'Suraj';
+update employee_payroll set gender = 'M' where name = 'Sanket';
+update employee_payroll set gender = 'M' where name = 'Akshay';
+update employee_payroll set gender = 'F' where name = 'Nita';
+update employee_payroll set gender = 'F' where name = 'Aditi';
+update employee_payroll set gender = 'F' where name = 'Shikha';
 
 
