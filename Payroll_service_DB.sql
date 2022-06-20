@@ -24,6 +24,8 @@ INSERT INTO employee_payroll (name,salary,startDate) VALUES
 ('Nita', 20000, '2022-01-6'),
 ('Aditi', 20000, '2021-02-14'),
 ('Shikha', 30000, '2020-8-15');
+INSERT INTO employee_payroll (name,salary,startDate) VALUES
+('Terissa', 20000, '2022-01-6');
 --Retrive data from Table
 select * from employee_payroll;
 
@@ -72,3 +74,11 @@ alter table employee_payroll add Taxable_Pay float;
 alter table employee_payroll add Income_Tax float;
 alter table employee_payroll add Net_Pay float;
 select * from employee_payroll;
+
+--UC10 add terissa in sales and marketing department
+UPDATE employee_payroll set department = 'Sales' where name = 'Terissa';
+INSERT INTO employee_payroll
+(name, salary, startDate, Gender, phone_number, department, basic_pay, deductions, Taxable_Pay, Income_Tax, Net_Pay) VALUES
+('Terissa',30000, '2018-01-03','F',9876543210, 'Marketting',30000, 3000, 1000, 100, 25900);
+
+select * from employee_payroll where name='Terissa';
