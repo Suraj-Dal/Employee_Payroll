@@ -65,3 +65,10 @@ alter table employee_payroll add address varchar(200) NOT NULL default'Mumbai';
 alter table employee_payroll add department varchar(100) NOT NULL default 'Developer';
 select * from employee_payroll;
 
+--UC9 Alter table to add basic pay, deductions, Taxable pay, Income Tax, Net Pay
+alter table employee_payroll add basic_pay money default 1000;
+alter table employee_payroll add deductions float;
+alter table employee_payroll add Taxable_Pay float;
+alter table employee_payroll add Income_Tax float;
+alter table employee_payroll add Net_Pay float;
+select * from employee_payroll;
