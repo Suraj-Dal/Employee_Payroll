@@ -82,3 +82,43 @@ INSERT INTO employee_payroll
 ('Terissa',30000, '2018-01-03','F',9876543210, 'Marketting',30000, 3000, 1000, 100, 25900);
 
 select * from employee_payroll where name='Terissa';
+
+--UC11 ER Diagram
+create table Department(Dept_id int not null identity(1,1) primary key,DeptName varchar(50) not null);
+select * from Department;
+
+insert into Department(DeptName) values
+('Marketing'),
+('Sales'),
+('Development'),
+('Testing');
+select * from Department; 
+
+create table EmployeeDetails 
+(
+Emp_id int not null Primary Key identity(1,1),
+Emp_Name varchar(50) not null,
+Gender char(1) not null,
+Phone_Number varchar(50),
+Payroll_id int not null Foreign key References employee_payroll(id),
+Start_Date Date default GetDate()
+);
+select * from EmployeeDetails;
+
+INSERT into EmployeeDetails(Emp_Name,Gender,Phone_Number,Payroll_id) values
+('Suraj','M','9049091087','4'),
+('Sanket','M','912345678','5'),
+('Akshay','M','8876543219','6'),
+('Terissa','F','9876543210','11');
+
+select * from EmployeeDetails;
+
+create table DeptEmployee(
+Emp_id int not null Foreign key references EmployeeDetails(Emp_id),
+Dept_id int not null Foreign key references Department(Dept_id) 
+);
+
+select * from DeptEmployee;
+insert into DeptEmployee values(4,3);
+select * from DeptEmployee;
+
