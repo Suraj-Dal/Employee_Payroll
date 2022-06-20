@@ -43,4 +43,17 @@ update employee_payroll set gender = 'F' where name = 'Nita';
 update employee_payroll set gender = 'F' where name = 'Aditi';
 update employee_payroll set gender = 'F' where name = 'Shikha';
 
+--UC 7 to get Sum, Avg, Min, Max and no. of male and Female employee.
+SELECT SUM(salary) FROM employee_payroll     
+WHERE Gender = 'M' 
+GROUP BY Gender;
 
+SELECT SUM(salary) FROM employee_payroll       -- The SUM() function returns the total sum of a numeric column. 
+WHERE Gender = 'F' 
+GROUP BY Gender;
+
+Select Gender, SUM(salary) From employee_payroll GROUP BY Gender;
+Select Gender, AVG(salary) From employee_payroll GROUP BY Gender;
+Select Gender, MIN(salary) From employee_payroll GROUP BY Gender;
+Select Gender, MAX(salary) From employee_payroll GROUP BY Gender;
+Select Gender, COUNT(name) From employee_payroll GROUP BY Gender;
