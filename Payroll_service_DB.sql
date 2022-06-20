@@ -122,3 +122,9 @@ select * from DeptEmployee;
 insert into DeptEmployee values(4,3);
 select * from DeptEmployee;
 
+--UC12 ensure all retieve queries done
+select Emp_id,Emp_Name,Income_Tax from EmployeeDetails,employee_payroll where EmployeeDetails.Payroll_id=employee_payroll.id;
+
+select Emp_id,Emp_Name,Income_Tax from EmployeeDetails,employee_payroll where Start_Date between CAST('1900-01-01' as date) and GETDATE() and  
+EmployeeDetails.Payroll_id=employee_payroll.id;
+
